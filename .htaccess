@@ -1,0 +1,10 @@
+<FilesMatch "\.png$">
+    Allow from all
+</FilesMatch>
+
+# Restrict access to tracker.php to the images/ directory.
+<Files tracker.php>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/images/
+    RewriteRule ^(.*)$ - [F,L]
+</Files>
